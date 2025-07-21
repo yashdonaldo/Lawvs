@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lawvs - Online Legal Education Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom Scrollbar for Better UI */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #3b82f6;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2563eb;
+    }
+    /* Animation for arrows */
+    @keyframes bounce {
+      0%, 100% {transform: translateY(0);}
+      50% {transform: translateY(-5px);}
+    }
+    .bounce {
+      animation: bounce 2s infinite;
+    }
+    /* Custom scrollbar for video playlist */
+    #video-playlist::-webkit-scrollbar {
+      width: 6px;
+    }
+    #video-playlist::-webkit-scrollbar-track {
+      background: #e5e7eb;
+    }
+    #video-playlist::-webkit-scrollbar-thumb {
+      background: #3b82f6;
+      border-radius: 10px;
+    }
+    #video-playlist::-webkit-scrollbar-thumb:hover {
+      background: #2563eb;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 font-sans leading-relaxed">
+
+  <!-- Navbar / Header -->
+  <header class="border-b border-gray-300 sticky top-0 bg-white z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between p-4 md:p-6">
+      <div class="text-2xl font-bold text-blue-600 select-none cursor-default">Lawvs</div>
+      <nav class="hidden md:flex space-x-8 font-medium text-gray-700">
+        <a href="#" class="hover:text-blue-600 transition">Courses</a>
+        <a href="#" class="hover:text-blue-600 transition">Webinars</a>
+        <a href="#" class="hover:text-blue-600 transition">Events</a>
+        <a href="#" class="hover:text-blue-600 transition">About</a>
+        <a href="#" class="hover:text-blue-600 transition">Contact</a>
+      </nav>
+      <div class="hidden md:block">
+        <button 
+          class="text-white bg-blue-600 hover:bg-blue-700 rounded px-4 py-2 transition"
+          aria-label="Sign In"
+        >Sign In</button>
+      </div>
+      <button id="mobileMenuBtn" class="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Toggle menu">
+        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <nav id="mobileMenu" class="hidden px-4 pb-4 border-t border-gray-300 bg-white md:hidden">
+      <a href="#" class="block py-2 text-gray-700 hover:text-blue-600 transition">Courses</a>
+      <a href="#" class="block py-2 text-gray-700 hover:text-blue-600 transition">Webinars</a>
+      <a href="#" class="block py-2 text-gray-700 hover:text-blue-600 transition">Events</a>
+      <a href="#" class="block py-2 text-gray-700 hover:text-blue-600 transition">About</a>
+      <a href="#" class="block py-2 text-gray-700 hover:text-blue-600 transition">Contact</a>
+      <button 
+          class="w-full mt-2 text-white bg-blue-600 hover:bg-blue-700 rounded px-4 py-2"
+          aria-label="Sign In"
+      >Sign In</button>
+    </nav>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 md:px-12 mt-12 space-y-24">
+
+    <!-- Hero Section -->
+    <section id="hero" class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+          Learn the occupation in <span class="text-blue-600">Lawvs</span> for success in online legal education.
+        </h1>
+        <p class="mt-6 text-lg text-gray-700 max-w-lg">
+          Join thousands of legal professionals, students, and experts who trust Lawvs for online courses, practical workshops, webinars, and expert-led sessions. Unlock your potential in legal careers and compliance today.
+        </p>
+
+        <div class="mt-8 space-x-4 flex flex-wrap items-center">
+          <button class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded font-semibold shadow transition">View Courses</button>
+          <button class="px-6 py-3 border border-blue-600 text-blue-600 hover:bg-blue-50 rounded font-semibold transition">Free Trial</button>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center text-gray-700">
+          <div>
+            <div class="text-xl font-bold text-blue-600">20,000+</div>
+            <div class="text-sm">Students</div>
+          </div>
+          <div>
+            <div class="text-xl font-bold text-blue-600">150+</div>
+            <div class="text-sm">Expert Instructors</div>
+          </div>
+          <div>
+            <div class="text-xl font-bold text-blue-600">500+</div>
+            <div class="text-sm">Courses</div>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center md:justify-end">
+        <img 
+          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0ef91590-0aa2-46e8-b0fa-87c087ffb11e.png" 
+          alt="Modern flat illustration showing diverse legal professionals working online, engaging in education and collaboration" 
+          class="rounded-lg shadow-lg max-w-full object-cover"
+          onerror="this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/15026af6-de2c-4931-a867-8813c3d3666a.png'"
+        />
+      </div>
+    </section>
+
+    <!-- Search & Filter courses -->
+    <section class="bg-gray-50 border border-gray-200 rounded-lg p-8 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-semibold text-gray-900 mb-4 text-center">Find Your Course</h2>
+      <form class="flex flex-col md:flex-row items-center gap-4 justify-center">
+        <input 
+          type="text" 
+          placeholder="Search by keyword" 
+          aria-label="Search by keyword"
+          class="flex-grow px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <select aria-label="Select Category" class="px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="">Select Category</option>
+          <option>Corporate Law</option>
+          <option>Intellectual Property</option>
+          <option>Compliance</option>
+          <option>International Trade</option>
+          <option>Criminal Law</option>
+        </select>
+        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded transition">Search</button>
+      </form>
+    </section>
+
+    <!-- Intro Video and Description -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="md:col-span-2 rounded-lg overflow-hidden shadow-lg">
+        <video controls 
+          src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4" 
+          aria-label="Introduction video about Lawvs online legal education"
+          class="w-full h-auto rounded-lg aspect-video object-cover bg-gray-900"
+        >
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="space-y-4">
+        <h3 class="text-lg font-semibold text-blue-600">Why Choose Lawvs?</h3>
+        <p class="text-gray-700">Our platform provides interactive, comprehensive legal education designed for busy professionals and students alike. Gain practical skills, certifications, and access to a global community of legal experts.</p>
+        <ul class="list-disc list-inside text-gray-600 space-y-2">
+          <li>Expert-led live and recorded sessions</li>
+          <li>Flexible learning schedules</li>
+          <li>Hands-on practical case studies</li>
+          <li>Supportive community & networking</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Features / Benefits Section -->
+    <section class="py-16 bg-gray-900 text-white rounded-lg px-8 max-w-7xl mx-auto">
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="space-y-6 flex flex-col justify-center">
+          <h2 class="text-4xl font-bold leading-tight max-w-md">
+            Unlock Your Legal Career Advantages
+          </h2>
+          <p class="text-gray-300 max-w-md">
+            Start or enhance your legal profession with a powerful learning platform trusted worldwide. Bring your expertise to the next level with our rich course catalogue and live mentorship.
+          </p>
+          <ul class="space-y-4">
+            <li class="flex items-start space-x-3">
+              <svg class="w-6 h-6 flex-shrink-0 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+              <span>Certificate Courses by Experienced Legal Experts</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <svg class="w-6 h-6 flex-shrink-0 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+              <span>Practical on-demand Workshops</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <svg class="w-6 h-6 flex-shrink-0 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+              <span>Engaging Webinars with Industry Leaders</span>
+            </li>
+          </ul>
+        </div>
+        <div class="grid grid-cols-2 gap-6">
+          <div>
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5a8e03c9-996f-4204-84bd-686c8030379f.png" alt="Certificate course online legal course illustration with certificate and book" class="w-full rounded-lg shadow-lg object-cover" />
+          </div>
+          <div>
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2ef5c279-f6d1-45dc-9351-4bfd88f28b3d.png" alt="Illustration of professional group workshop for legal skills training in modern office" class="w-full rounded-lg shadow-lg object-cover" />
+          </div>
+          <div>
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d3dd5b5f-131c-4ab6-82e9-3435d0969968.png" alt="Online webinar with diverse group of legal experts shown on video call" class="w-full rounded-lg shadow-lg object-cover" />
+          </div>
+          <div>
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ff348c6e-22d6-4dbe-836e-48792031ef20.png" alt="Animated illustration of diverse legal professionals networking and collaborating" class="w-full rounded-lg shadow-lg object-cover" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Achievements Section -->
+    <section class="bg-blue-900 text-white rounded-lg px-10 py-14 max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-10">Lawvs Yearly Achievements</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 max-w-6xl mx-auto text-center">
+        <div>
+          <div class="text-5xl font-extrabold text-blue-400">3,500+</div>
+          <div class="mt-2 text-lg">Course Graduates</div>
+        </div>
+        <div>
+          <div class="text-5xl font-extrabold text-blue-400">200+</div>
+          <div class="mt-2 text-lg">Live Webinars</div>
+        </div>
+        <div>
+          <div class="text-5xl font-extrabold text-blue-400">12,000+</div>
+          <div class="mt-2 text-lg">Active Students</div>
+        </div>
+        <div>
+          <div class="text-5xl font-extrabold text-blue-400">98%</div>
+          <div class="mt-2 text-lg">Student Satisfaction</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular Courses Section -->
+    <section class="max-w-7xl mx-auto my-24 px-6 md:px-0">
+      <h2 class="text-3xl font-bold text-center mb-10">Most Popular Courses</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <article class="rounded-lg shadow-lg border border-gray-200 p-6 flex flex-col justify-between hover:shadow-2xl transition">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4311cbae-4722-4bb9-b6a4-62cddc54337d.png" alt="Corporate law professional working in office illustration" class="rounded-md mb-6 object-cover w-full h-48" />
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Corporate Law Fundamentals</h3>
+            <p class="text-gray-700 mb-4">Master the basics of corporate law including contracts, mergers, and compliance.</p>
+            <button class="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 transition">Learn More</button>
+          </div>
+        </article>
+        <article class="rounded-lg shadow-lg border border-gray-200 p-6 flex flex-col justify-between hover:shadow-2xl transition">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d49407cd-b822-4786-b126-a9ad6903f4c6.png" alt="Legal professional reviewing intellectual property documents illustration" class="rounded-md mb-6 object-cover w-full h-48" />
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Intellectual Property Rights</h3>
+            <p class="text-gray-700 mb-4">Explore patents, trademarks, copyrights, and trade secrets protections.</p>
+            <button class="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 transition">Learn More</button>
+          </div>
+        </article>
+        <article class="rounded-lg shadow-lg border border-gray-200 p-6 flex flex-col justify-between hover:shadow-2xl transition">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9a97c389-77b7-4e1b-85f7-d5b14da45f16.png" alt="Compliance officer conducting audit in modern office setting" class="rounded-md mb-6 object-cover w-full h-48" />
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Regulatory Compliance Essentials</h3>
+            <p class="text-gray-700 mb-4">Understand legal frameworks, risk management, and audit techniques.</p>
+            <button class="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 transition">Learn More</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Bootcamps & Upcoming Events Section -->
+    <section class="max-w-7xl mx-auto bg-gray-50 rounded-lg px-8 py-16">
+      <h2 class="text-3xl font-bold text-center mb-12">Bootcamps & Upcoming Events</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Event Card -->
+        <article class="bg-white rounded-lg shadow hover:shadow-lg p-6 flex flex-col">
+          <img 
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/87a0d2f2-3dda-4f1f-8b22-6ddf7ab2559c.png" 
+            alt="Legal bootcamp session for contract law workshop illustration" 
+            class="rounded-md object-cover w-full h-40"
+          />
+          <h3 class="mt-4 font-semibold text-lg text-blue-600">Contract Law Bootcamp</h3>
+          <p class="mt-2 text-gray-700 flex-grow">Intensive 3-day workshop on advanced contract law, negotiation, and drafting techniques.</p>
+          <span class="mt-4 text-sm font-medium text-blue-500">Date: Sep 15-17, 2024</span>
+          <button class="mt-6 bg-blue-600 hover:bg-blue-700 text-white rounded py-2 font-semibold transition">Register Now</button>
+        </article>
+        <article class="bg-white rounded-lg shadow hover:shadow-lg p-6 flex flex-col">
+          <img 
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/65c173c7-4b68-456f-b6a6-92501e8a21ec.png" 
+            alt="Professionals attending live legal webinar event" 
+            class="rounded-md object-cover w-full h-40"
+          />
+          <h3 class="mt-4 font-semibold text-lg text-blue-600">Compliance Webinar</h3>
+          <p class="mt-2 text-gray-700 flex-grow">Live session covering new compliance laws and corporate responsibilities for 2024.</p>
+          <span class="mt-4 text-sm font-medium text-blue-500">Date: Oct 10, 2024 | Online</span>
+          <button class="mt-6 bg-blue-600 hover:bg-blue-700 text-white rounded py-2 font-semibold transition">Register Now</button>
+        </article>
+        <article class="bg-white rounded-lg shadow hover:shadow-lg p-6 flex flex-col">
+          <img 
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a26a50c9-a781-41ba-adb0-8d5301dd2f8d.png" 
+            alt="Law practitioners participating in specialized intellectual property workshop" 
+            class="rounded-md object-cover w-full h-40"
+          />
+          <h3 class="mt-4 font-semibold text-lg text-blue-600">IP Rights Workshop</h3>
+          <p class="mt-2 text-gray-700 flex-grow">Focused workshop on emerging IP rights challenges for tech and creative sectors.</p>
+          <span class="mt-4 text-sm font-medium text-blue-500">Date: Nov 22, 2024 | Online & In-Person</span>
+          <button class="mt-6 bg-blue-600 hover:bg-blue-700 text-white rounded py-2 font-semibold transition">Register Now</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- Subscription Section -->
+    <section class="bg-gray-900 rounded-lg max-w-7xl mx-auto px-12 py-16 flex flex-col md:flex-row items-center text-white space-y-10 md:space-y-0 md:space-x-16">
+      <div class="flex-1 max-w-lg">
+        <h2 class="text-3xl font-bold mb-4">Get the finest resources</h2>
+        <p class="mb-6 text-gray-300">Subscribe to Lawvs's newsletter and receive free guides, updates on courses, webinars, and exclusive offers right to your inbox.</p>
+        <form class="flex flex-col sm:flex-row gap-4">
+          <input type="email" aria-label="Email address" placeholder="Enter your email" required class="flex-grow px-4 py-3 rounded focus:outline-none text-gray-900" />
+          <button type="submit" class="bg-blue-600 hover:bg-blue-700 rounded px-6 py-3 font-semibold transition">Subscribe</button>
+        </form>
+      </div>
+      <img 
+        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/51ce1b99-1804-4de9-b414-7b683bf42619.png" 
+        alt="Modern flat design illustration of a person receiving newsletter on laptop" 
+        class="flex-1 rounded-lg shadow-lg max-w-full object-cover"
+        onerror="this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e310ed5d-870b-4dd6-8951-57e0de1c83d0.png'"
+      />
+    </section>
+
+    <!-- YouTube Videos Section -->
+    <section class="max-w-7xl mx-auto mt-28 px-6 md:px-0">
+      <h2 class="text-3xl font-bold text-center mb-12">You are watching on Youtube</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+        <article class="flex flex-col space-y-4 shadow-lg rounded-lg overflow-hidden">
+          <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" title="Legal Training Video 1" allowfullscreen class="w-full aspect-video"></iframe>
+          <h3 class="font-bold px-4">Legal Basics for Beginners</h3>
+          <p class="px-4 text-gray-700">An introduction to essential legal concepts for newbies and students.</p>
+        </article>
+        <article class="flex flex-col space-y-4 shadow-lg rounded-lg overflow-hidden">
+          <iframe src="https://www.youtube.com/embed/ysz5S6PUM-U" title="Legal Training Video 2" allowfullscreen class="w-full aspect-video"></iframe>
+          <h3 class="font-bold px-4">How to Handle Legal Contracts</h3>
+          <p class="px-4 text-gray-700">Tips on reading, drafting, and negotiating contracts efficiently.</p>
+        </article>
+        <article class="flex flex-col space-y-4 shadow-lg rounded-lg overflow-hidden">
+          <iframe src="https://www.youtube.com/embed/jNQXAC9IVRw" title="Legal Training Video 3" allowfullscreen class="w-full aspect-video"></iframe>
+          <h3 class="font-bold px-4">Compliance & Regulations Explained</h3>
+          <p class="px-4 text-gray-700">Understanding corporate compliance from rules and audits to ethics.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- LinkedIn Success Stories Section -->
+    <section class="max-w-7xl mx-auto mt-28 px-6 md:px-0">
+      <h2 class="text-3xl font-bold text-center mb-12">Success stories on LinkedIn</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto text-center">
+        <figure class="shadow-md p-6 rounded-lg bg-white">
+          <img 
+            alt="Professional headshot of a smiling businesswoman" 
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/77909028-f91c-4614-8e72-6180bf9d98cc.png" 
+            class="mx-auto rounded-full mb-4 object-cover"
+            onerror="this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b012c180-760b-4dc3-8457-c67a8160f7d7.png'"
+          />
+          <figcaption>
+            <p class="font-semibold">Jessica Lee</p>
+            <p class="text-sm text-gray-700 mt-1">Senior Legal Advisor</p>
+          </figcaption>
+        </figure>
+        <figure class="shadow-md p-6 rounded-lg bg-white">
+          <img 
+            alt="Professional headshot of a friendly businessman" 
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f24f0e10-8c6f-4b2b-963b-3f9f1782d8c1.png" 
+            class="mx-auto rounded-full mb-4 object-cover"
+            onerror="this.src='https://placehold.co/96x96?text=Fallback'"
+          />
+          <figcaption>
+            <p class="font-semibold">Robert Kim</p>
+            <p class="text-sm text-gray-700 mt-1">Compliance Officer</p>
+          </figcaption>
+        </figure>
+        <figure class="shadow-md p-6 rounded-lg bg-white">
+          <img 
+            alt="Professional headshot of a man with glasses smiling" 
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ce2ada10-b3ac-4877-a2be-9b8aa4534469.png" 
+            class="mx-auto rounded-full mb-4 object-cover"
+            onerror="this.src='https://placehold.co/96x96?text=Fallback'"
+          />
+          <figcaption>
+            <p class="font-semibold">Mark Johnson</p>
+            <p class="text-sm text-gray-700 mt-1">Intellectual Property Lawyer</p>
+          </figcaption>
+        </figure>
+        <figure class="shadow-md p-6 rounded-lg bg-white">
+          <img 
+            alt="Professional headshot of a businesswoman with curly hair" 
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/90c346e6-d14d-4cff-9c5d-17bf586147b2.png" 
+            class="mx-auto rounded-full mb-4 object-cover"
+            onerror="this.src='https://placehold.co/96x96?text=Fallback'"
+          />
+          <figcaption>
+            <p class="font-semibold">Sarah White</p>
+            <p class="text-sm text-gray-700 mt-1">Paralegal Specialist</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Reviews from Quora Section -->
+    <section class="max-w-7xl mx-auto my-28 px-6 md:px-0">
+      <h2 class="text-3xl font-bold text-center mb-12">Reviews on Quora</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto">
+        <aside class="p-6 border border-gray-300 rounded-lg shadow hover:shadow-lg transition">
+          <p class="text-lg italic mb-4">"Lawvs's platform is one of the best I've used for deepening legal knowledge quickly. The faculty is accessible and the examples are practical."</p>
+          <footer class="text-right font-semibold text-gray-700">- Alex Miller</footer>
+        </aside>
+        <aside class="p-6 border border-gray-300 rounded-lg shadow hover:shadow-lg transition">
+          <p class="text-lg italic mb-4">"The courses are relevant, concise, and the instructors really know their stuff. Perfect for busy professionals."</p>
+          <footer class="text-right font-semibold text-gray-700">- Priya Singh</footer>
+        </aside>
+        <aside class="p-6 border border-gray-300 rounded-lg shadow hover:shadow-lg transition">
+          <p class="text-lg italic mb-4">"I highly recommend Lawvs for anyone looking to update their legal skills or stay ahead in compliance."</p>
+          <footer class="text-right font-semibold text-gray-700">- Tom Richards</footer>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Faculty & Experts Section -->
+    <section class="max-w-7xl mx-auto my-28 px-6 md:px-0">
+      <h2 class="text-3xl font-bold text-center mb-12">Details of our Faculties and Experts</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
+        <div class="text-center space-y-3">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3db045bb-2ff4-4549-a085-bf42ed296410.png" alt="Portrait of Donna White, Senior Law Professor wearing glasses and smiling" class="w-32 h-32 mx-auto rounded-full object-cover shadow-lg" />
+          <h3 class="font-semibold text-lg">Donna White</h3>
+          <p class="text-gray-700 text-sm">Senior Law Professor specializing in corporate law, contract negotiations, and mediation skills.</p>
+        </div>
+        <div class="text-center space-y-3">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/083b184b-8d22-4637-be96-d87d33c4a04a.png" alt="Portrait of Rajesh Malhotra, Expert Compliance Trainer with friendly expression" class="w-32 h-32 mx-auto rounded-full object-cover shadow-lg" />
+          <h3 class="font-semibold text-lg">Rajesh Malhotra</h3>
+          <p class="text-gray-700 text-sm">Compliance expert focused on anti-corruption laws and regulatory audits worldwide.</p>
+        </div>
+        <div class="text-center space-y-3">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/03a5a6b2-ce9a-4d81-88dc-d9eff4ec4bb1.png" alt="Portrait of Clara Rodriguez, Intellectual Property Law expert smiling warmly" class="w-32 h-32 mx-auto rounded-full object-cover shadow-lg" />
+          <h3 class="font-semibold text-lg">Clara Rodriguez</h3>
+          <p class="text-gray-700 text-sm">IP law specialist and legal consultant for tech startups and creative industries.</p>
+        </div>
+        <div class="text-center space-y-3">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c0caa742-7779-45c1-b7f1-012a8742c609.png" alt="Portrait of John Matthews, Criminal Law expert in professional attire" class="w-32 h-32 mx-auto rounded-full object-cover shadow-lg" />
+          <h3 class="font-semibold text-lg">John Matthews</h3>
+          <p class="text-gray-700 text-sm">Experienced criminal law attorney with focus on white-collar crimes and litigation strategies.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- User Testimonials with Quotes Section -->
+    <section class="max-w-7xl mx-auto my-28 px-6 md:px-0 bg-gray-100 rounded-lg p-12">
+      <h2 class="text-3xl font-bold text-center mb-12">What do top legal experts and practitioners say about our courses?</h2>
+      <div class="max-w-4xl mx-auto space-y-10 text-center text-gray-800">
+        <blockquote class="relative bg-white p-8 rounded-lg shadow-lg border-l-8 border-blue-600">
+          <p class="text-lg italic">"Lawvs's interactive approach and top-notch instructors made my transition into corporate legal advisory seamless."</p>
+          <footer class="mt-4 font-semibold">Emily Carter, Corporate Lawyer</footer>
+        </blockquote>
+        <blockquote class="relative bg-white p-8 rounded-lg shadow-lg border-l-8 border-blue-600">
+          <p class="text-lg italic">"The hands-on workshops and detailed materials are unmatched. This platform really empowers legal professionals."</p>
+          <footer class="mt-4 font-semibold">Michael Nguyen, Compliance Consultant</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Clients / Partners Logos Section -->
+    <section class="max-w-7xl mx-auto my-28 px-6 md:px-0 text-center">
+      <h2 class="text-3xl font-bold mb-12">Trusted by These Brands & Organizations</h2>
+      <div class="grid grid-cols-3 md:grid-cols-8 gap-8 items-center max-w-6xl mx-auto">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/63a9a46f-7b30-421d-a030-bac6f693f0cd.png" alt="Logo of Google" class="mx-auto object-contain" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f3fd6ac1-62bf-4f66-aeb7-a8cbf00310d1.png" alt="Logo of IBM" class="mx-auto object-contain" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ece7aa69-9203-413b-aa91-c4c5da6f21e5.png" alt="Logo of EY" class="mx-auto object-contain" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1abf42ee-660f-4f7a-b090-5ae3f0263797.png" alt="Logo of HSBC" class="mx-auto object-contain" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6001051e-7790-4d20-a859-eb5cca1b7f3b.png" alt="Logo of JCB" class="mx-auto object-contain" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3518fff5-d5ef-43b7-9bfb-1fc926dfe5a4.png" alt="Logo of Unilever" class="mx-auto object-contain" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/518b52c2-60be-4e38-9e9a-d6131192f5c0.png" alt="Logo of PWC" class="mx-auto object-contain" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7fcccf5f-7b5e-4f63-97cb-36a8fb23fd06.png" alt="Logo of Microsoft" class="mx-auto object-contain" />
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="bg-blue-800 text-white py-20 rounded-lg max-w-7xl mx-auto px-12 text-center">
+      <h2 class="text-4xl font-extrabold max-w-3xl mx-auto">Confused about your career path? Connect with our experts and get personalized guidance.</h2>
+      <form class="mt-8 flex flex-col md:flex-row justify-center items-center max-w-4xl mx-auto gap-4">
+        <input type="text" aria-label="Enter your name" placeholder="Enter your name" required class="flex-grow rounded px-4 py-3 text-gray-900 focus:outline-none" />
+        <input type="email" aria-label="Enter your email" placeholder="Enter your email" required class="flex-grow rounded px-4 py-3 text-gray-900 focus:outline-none" />
+        <button type="submit" class="bg-white text-blue-800 font-bold rounded px-8 py-3 hover:bg-gray-200 transition">Get Advice</button>
+      </form>
+      <p class="mt-6 max-w-xl mx-auto text-blue-200">
+        Our experts will help you choose courses that fit your goals, skills, and interests.
+      </p>
+    </section>
+
+    <!-- Media & Recognition Section -->
+    <section class="max-w-7xl mx-auto my-28 px-6 md:px-0">
+      <h2 class="text-3xl font-bold text-center mb-10">Featured In & Recognized By</h2>
+      <div class="flex flex-wrap justify-center gap-12 items-center text-gray-500">
+        <span class="font-semibold text-lg">Forbes</span>
+        <span class="font-semibold text-lg">TEDx</span>
+        <span class="font-semibold text-lg">The New York Times</span>
+        <span class="font-semibold text-lg">Harvard Law Review</span>
+        <span class="font-semibold text-lg">The Economist</span>
+      </div>
+    </section>
+
+    <!-- Benefits Overview Section -->
+    <section class="max-w-7xl mx-auto px-6 md:px-0 pb-20">
+      <h2 class="text-3xl font-bold text-center mb-12">Why Lawvs?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 text-center max-w-7xl mx-auto">
+        <div class="space-y-4 p-6 border border-gray-300 rounded-lg shadow hover:shadow-lg transition">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f9b63c70-71bc-4896-a9e1-537d7bbad5aa.png" alt="Icon with check mark symbolizing accredited courses" class="mx-auto" />
+          <h3 class="font-semibold text-lg">Accredited Certification</h3>
+          <p>Receive certificates recognized by global legal bodies.</p>
+        </div>
+        <div class="space-y-4 p-6 border border-gray-300 rounded-lg shadow hover:shadow-lg transition">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b6ad46fb-56cc-4d21-9413-42e1851a3ab1.png" alt="Icon showing clock for flexible learning hours" class="mx-auto" />
+          <h3 class="font-semibold text-lg">Flexible Schedules</h3>
+          <p>Learn at your own pace anytime, anywhere with 24/7 access.</p>
+        </div>
+        <div class="space-y-4 p-6 border border-gray-300 rounded-lg shadow hover:shadow-lg transition">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/eeda80be-9e2a-43fc-82f4-594be733ddef.png" alt="Icon showing globe for global experts" class="mx-auto" />
+          <h3 class="font-semibold text-lg">Global Experts</h3>
+          <p>Learn from a diverse faculty of international legal professionals.</p>
+        </div>
+        <div class="space-y-4 p-6 border border-gray-300 rounded-lg shadow hover:shadow-lg transition">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1b830595-f934-437b-a064-d76764e0552f.png" alt="Icon showing hand shake for community network" class="mx-auto" />
+          <h3 class="font-semibold text-lg">Vibrant Community</h3>
+          <p>Network and collaborate with like-minded legal practitioners worldwide.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Corporate Training Section -->
+    <section class="bg-gray-900 text-white rounded-lg max-w-7xl mx-auto px-12 py-16 my-24">
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-4xl font-bold mb-6">Corporate Training Made Easy</h2>
+          <p class="mb-6 text-gray-300">Equip your legal team with the latest knowledge and compliance skills through tailor-made training programs designed for your company's needs.</p>
+          <ul class="list-disc list-inside text-blue-400 mb-6 space-y-2">
+            <li>Customized courses for industries and sectors</li>
+            <li>On-site and virtual training options</li>
+            <li>Follow-up assessments and certification</li>
+            <li>Access to expert legal consultants</li>
+          </ul>
+          <button class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded font-semibold transition">Request a Demo</button>
+        </div>
+        <div>
+          <img 
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4f7ebbb4-a02d-46e8-9c2c-37f06ed7ddb4.png" 
+            alt="Illustration of corporate legal training session with team and trainer in modern office" 
+            class="rounded-lg shadow-lg object-cover max-w-full"
+            onerror="this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0efa520b-933f-4ec3-aeab-34b7e9a786db.png'"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 border-t border-gray-300 text-gray-600 px-6 md:px-12 py-16 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
+        <div>
+          <h3 class="font-bold mb-4 text-gray-900">Lawvs</h3>
+          <p>Online legal education platform committed to empowering professionals worldwide.</p>
+        </div>
+        <nav>
+          <h4 class="font-semibold mb-4 text-gray-900">Courses</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-blue-600">Corporate Law</a></li>
+            <li><a href="#" class="hover:text-blue-600">IP Law</a></li>
+            <li><a href="#" class="hover:text-blue-600">Compliance</a></li>
+            <li><a href="#" class="hover:text-blue-600">Criminal Law</a></li>
+          </ul>
+        </nav>
+        <nav>
+          <h4 class="font-semibold mb-4 text-gray-900">Resources</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-blue-600">Webinars</a></li>
+            <li><a href="#" class="hover:text-blue-600">Events</a></li>
+            <li><a href="#" class="hover:text-blue-600">Blog</a></li>
+            <li><a href="#" class="hover:text-blue-600">FAQ</a></li>
+          </ul>
+        </nav>
+        <nav>
+          <h4 class="font-semibold mb-4 text-gray-900">Contact</h4>
+          <ul class="space-y-2 text-sm">
+            <li>Email: support@Lawvs.com</li>
+            <li>Phone: +1 (555) 123-4567</li>
+            <li>Address: 123 Legal Street, Law City</li>
+          </ul>
+          <div class="mt-4 flex space-x-4 text-gray-500">
+            <a href="#" aria-label="Facebook" class="hover:text-blue-600 transition">FB</a>
+            <a href="#" aria-label="Twitter" class="hover:text-blue-600 transition">TW</a>
+            <a href="#" aria-label="LinkedIn" class="hover:text-blue-600 transition">LI</a>
+          </div>
+        </nav>
+      </div>
+      <p class="text-center mt-12 text-sm text-gray-500">© 2024 Lawvs. All rights reserved.</p>
+    </footer>
+
+  </main>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+      } else {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
+
